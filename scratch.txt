@@ -1,0 +1,15 @@
+Different possibilities:
+B G R
+BB:B BG:R GB:R BR:G RB:G GG:G GR:B RG:B RR:R
+
+B: [BB,GR,RG]
+G: [BR,RB,GG]
+R: [BG,GB,RR]
+
+(BB, GR, RG): B
+(BR, RB, GG): G
+(BG, GB, RR): R
+
+
+Take the two values in the list. Check it against the tuple as keys in the dictionary. Then we build the string from
+the value.
