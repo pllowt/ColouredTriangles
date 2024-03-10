@@ -1,0 +1,27 @@
+Different possibilities:
+B G R
+BB:B BG:R GB:R BR:G RB:G GG:G GR:B RG:B RR:R
+
+B: [BB,GR,RG]
+G: [BR,RB,GG]
+R: [BG,GB,RR]
+
+(BB, GR, RG): B
+(BR, RB, GG): G
+(BG, GB, RR): R
+
+
+Take the two values in the list. Check it against the tuple as keys in the dictionary. Then we build the string from
+the value.
+
+In Haskell you can't have a tuple as a key as it's expecting the entire tuple to be passed to it but I want to pass one
+element of the tuple to the function to determine the value
+
+Step two:
+    Goal: iterate over a string and determine the output string based on two elements of the string. so:
+     given "BBGRG" split it up to "BB", "BG", "GR", "RG"
+     let foo = "BBGRG"
+     let boo = head foo -> "B"
+     let bar = tail foo -> "BGRG"
+     let baz = head bar -> "B"
+     let buzz = [boo, baz] -> ["BB"]
