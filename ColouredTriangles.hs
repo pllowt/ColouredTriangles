@@ -1,4 +1,5 @@
 import qualified Data.Map as Map
+import qualified Data.Maybe as Maybe
 
 colourMap :: Map.Map (String) String
 colourMap = Map.fromList [
@@ -14,3 +15,15 @@ colourMap = Map.fromList [
 
 lookupColour :: String -> Maybe String
 lookupColour key = Map.lookup key colourMap
+
+patternSplitString :: String -> [String]
+patternSplitString [x] = []
+patternSplitString (x:y:xs) = [x, y] : patternSplitString (y:xs)
+
+processString :: String -> String
+processString s = concat $ map Maybe.fromJust $ map lookupColour $ patternSplitString s
+
+triangle :: (String -> String) -> String -> String
+triangle f s
+    | length s == 1 = s
+    | otherwise = triangle f (f s)

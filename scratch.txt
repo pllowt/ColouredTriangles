@@ -25,3 +25,20 @@ Step two:
      let bar = tail foo -> "BGRG"
      let baz = head bar -> "B"
      let buzz = [boo, baz] -> ["BB"]
+     [head foo]
+
+     let a = [head foo, head (tail foo)]
+     can use pattern matching instead so:
+     x:y:xs that'll return the head, next value and the body
+
+     let foo = patternSplitString "RBRGBRBGGRRRBGBBBGG"
+     let b = map lookupColour foo
+     let c = map Maybe.fromJust b
+     let d = concat c
+
+     processString :: String -> String
+     processString s = concat $ Maybe.fromJust $ map lookupColour $ patternSplitString
+
+
+
+
